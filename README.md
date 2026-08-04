@@ -1,11 +1,14 @@
 # Template pour applications web
 
-## Ajouter le template à son projet GitHub :
-```
-cd mon-projet
-git subtree add --prefix template-web-app https://github.com/Val648/template-web-app.git main --squash
-git subtree pull --prefix template-web-app https://github.com/Val648/template-web-app.git main --squash
-```
-
 ## Actions à réaliser :
-- Il est nécessaire de copier le text.json à la racine de son projet et de l'adapter pour correspondre à vos besoins
+- Copier le text.json à la racine de son projet et de l'adapter pour correspondre à vos besoins
+- Copier le fichier update-template.ps1 pour ajouter où mettre à jour le template-web-app
+
+## Ajouter le template à son projet GitHub par script PowerShell :
+```
+if (Test-Path template-web-app) {
+    Remove-Item -Recurse -Force template-web-app
+}
+git clone https://github.com/Val648/template-web-app.git template-web-app
+Remove-Item -Recurse -Force template-web-app\.git
+```

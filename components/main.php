@@ -13,7 +13,7 @@
             include($pagePath . $page . ".html");
         }
         else {
-            include($basePath . "views/default.html");
+            include($basePath . "views/default.php");
         }
     ?>
 </main>
