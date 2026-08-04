@@ -9,8 +9,11 @@
         if (file_exists($pagePath . $page . ".php")) {
             include($pagePath . $page . ".php");
         }
+        else if (file_exists($pagePath . $page . ".html")) {
+            include($pagePath . $page . ".html");
+        }
         else {
-            include($basePath . "views/default.php");
+            include($basePath . "views/default.html");
         }
     ?>
 </main>
