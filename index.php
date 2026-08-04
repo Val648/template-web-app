@@ -1,24 +1,22 @@
 <?php
 
-// Déterminer le layout (passer en paramètre ou variable)
-$layout = isset($_GET['layout']) ? $_GET['layout'] : 'horizontal';
-// Valeurs acceptées: 'horizontal' ou 'vertical'
+$textPath = "config.json";
+
+// Get content from JSON file
+$basePath = getJsonContent($textPath, "templatePath") ?? "";
+$pagePath = getJsonContent($textPath, "pagePath") ?? "views/";
+$appName = getJsonContent($textPath, "appName") ?? "Mon application"; 
+$layout = getJsonContent($textPath, "layout") ?? "horizontal";
 $layout = in_array($layout, ['horizontal', 'vertical']) ? $layout : 'horizontal';
+$navigation = getJsonContent($textPath, "navigation");
 
-$page = isset($_GET['page']) ? $_GET['page'] : 'accueil';
-$page = in_array($page, ['accueil', 'utilisateurs']) ? $page : 'accueil';
+// Dynamic variables
+$page ??= $_GET["page"] ?? 'default';
+$title ??= $appName . ($layout === 'vertical' ? ' - Admin' : ' - Accueil');
 
-$appName = "Application";
-$title = $appName . ($layout === 'vertical' ? ' - Admin' : ' - Accueil');
-$navigation = [
-    ['label' => 'Accueil', 'icon' => '📊', 'page' => 'accueil'],
-    ['label' => 'Utilisateurs', 'icon' => '👥', 'page' => 'utilisateurs'],
-    ['label' => 'Paramètres', 'icon' => '⚙️', 'page' => 'parametres'],
-    ['label' => 'Analytiques', 'icon' => '📈', 'page' => 'analytics'],
-    ['label' => 'Rapports', 'icon' => '📄', 'page' => 'reports'],
-    // ['label' => 'Quitter', 'icon' => '🚪', 'page' => 'index.php'],
-];
-
-$basePath = "template/";
+function getJsonContent($textPath, $key) : string|array|null {
+    $jsonData = json_decode(file_get_contents($textPath), true);
+    return isset($jsonData[$key]) ? $jsonData[$key] : null;
+}
 
 include("template.php");

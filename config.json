@@ -1,0 +1,23 @@
+{
+    "templatePath" : "",
+    "pagePath" : "views/",
+    "appName": "Application",
+    "layout": "vertical",
+    "navigation": [
+        {
+            "label": "Accueil",
+            "icon": "📊",
+            "page": "accueil"
+        },
+        {
+            "label": "Utilisateurs",
+            "icon": "👥",
+            "page": "utilisateurs"
+        },
+        {
+            "label": "Paramètres",
+            "icon": "⚙️",
+            "page": "parametres"
+        }
+    ]
+}

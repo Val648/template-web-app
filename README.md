@@ -1,0 +1,1 @@
+Il est nécessaire de copier le text.json à la racine de son projet

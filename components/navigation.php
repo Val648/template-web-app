@@ -2,7 +2,7 @@
     <ul>
         <?php foreach($navigation as $element): ?>
             <li>
-                <a href="?layout=<?= $layout ?>&page=<?= $element['page'] ?>">
+                <a href="?page=<?= $element['page'] ?>">
                     <span><?= $element['icon'] ?></span>
                     <p><?= $element['label'] ?></p>
                 </a>

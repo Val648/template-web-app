@@ -130,15 +130,14 @@ main.collapsed {
 }
 
 .first-section {
-  /* display: flex; */
-  /* flex-direction: column; */
-  /* justify-content: center; */
-  /* align-items: center; */
-  /* gap: 12px; */
-  /* padding: 24px; */
-  flex: 1;
   height: 85px;
   padding: 15px 20px;
   background: var(--deep-green);
   color: var(--white-text-primary);
+  position: sticky;
+  width: 100%;
+}
+
+.first-section a {
+  text-decoration:underline;
 }
