@@ -1,6 +1,8 @@
 {
-    "templatePath" : "",
-    "pagePath" : "views/",
+    "templatePath": "",
+    "pagePath": "views/",
+    "cssPath": "css/",
+    "jsPath": "js/",
     "appName": "Application",
     "layout": "vertical",
     "navigation": [

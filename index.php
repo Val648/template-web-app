@@ -5,6 +5,8 @@ $textPath = "config.json";
 // Get content from JSON file
 $basePath = getJsonContent($textPath, "templatePath") ?? "";
 $pagePath = getJsonContent($textPath, "pagePath") ?? "views/";
+$cssPath = getJsonContent($textPath, "cssPath") ?? "css/";
+$jsPath = getJsonContent($textPath, "jsPath") ?? "js/";
 $appName = getJsonContent($textPath, "appName") ?? "Mon application"; 
 $layout = getJsonContent($textPath, "layout") ?? "horizontal";
 $layout = in_array($layout, ['horizontal', 'vertical']) ? $layout : 'horizontal';

@@ -3,8 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <?php foreach (glob($cssPath . '*.css') as $styleFile): ?>
+        <link rel="stylesheet" href="<?= $styleFile ?>">
+    <?php endforeach; ?>
     <link rel="stylesheet" href="<?= $basePath ?>css/base.css">
-    <?php if ($layout === 'vertical'): ?>
+    <?php if($layout === 'vertical'): ?>
         <link rel="stylesheet" href="<?= $basePath ?>css/menu-vertical.css">
     <?php endif; ?>
     <title><?= $title ?></title>
