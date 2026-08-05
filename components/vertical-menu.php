@@ -1,3 +1,9 @@
+<script>
+    // Lire et appliquer l'état IMMÉDIATEMENT
+    if (localStorage.getItem('menu-collapsed') === 'true') {
+    }
+</script>
+    
 <menu>
     <div id="title">
         <h1><?= $appName ?></h1>
@@ -7,22 +13,6 @@
 </menu>
 
 <script>
-document.getElementById('toggle-menu').addEventListener('click', function() {
-    const main = document.querySelector('main');
-    main.classList.toggle('collapsed');
-    
-    const menu = document.querySelector('menu');
-    menu.classList.toggle('collapsed');
-    
-    // Sauvegarder l'état dans le localStorage
-    const isCollapsed = menu.classList.contains('collapsed');
-    localStorage.setItem('menu-collapsed', isCollapsed);
-    
-    // Changer l'icône
-    this.textContent = isCollapsed ? '☰' : '✕';
-});
-
-// Restaurer l'état du menu au chargement
 document.addEventListener('DOMContentLoaded', function() {
     const isCollapsed = localStorage.getItem('menu-collapsed') === 'true';
     const main = document.querySelector('main');
@@ -34,5 +24,20 @@ document.addEventListener('DOMContentLoaded', function() {
         menu.classList.add('collapsed');
         toggleBtn.textContent = '☰';
     }
+    
+    // Activer les transitions après le chargement
+    // document.documentElement.classList.remove('menu-loaded');
+});
+
+document.getElementById('toggle-menu').addEventListener('click', function() {
+    const main = document.querySelector('main');
+    const menu = document.querySelector('menu');
+    
+    main.classList.toggle('collapsed');
+    menu.classList.toggle('collapsed');
+    
+    const isCollapsed = menu.classList.contains('collapsed');
+    localStorage.setItem('menu-collapsed', isCollapsed);
+    this.textContent = isCollapsed ? '☰' : '✕';
 });
 </script>

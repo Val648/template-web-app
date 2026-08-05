@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><?= $title ?></title>
     <?php foreach (glob($cssPath . '*.css') as $styleFile): ?>
         <link rel="stylesheet" href="<?= $styleFile ?>">
     <?php endforeach; ?>
@@ -10,7 +11,6 @@
     <?php if($layout === 'vertical'): ?>
         <link rel="stylesheet" href="<?= $basePath ?>css/menu-vertical.css">
     <?php endif; ?>
-    <title><?= $title ?></title>
 </head>
 <body style="flex-direction: <?= $layout === 'vertical' ? 'row' : 'column' ?>;">
     <?php 
